@@ -26,11 +26,15 @@ void easyonelmao()
 }
 void himeturn()
 {
-  himeturnleft(1500);
-  drive.turnAngle(90);
-  drive.moveDistance(500);
-  drive.turnAngle(90);
-  himeturnleft(1500);
+  intakeController.setTarget(5000);
+  drive.moveDistance(1000);
+  himeturnleft(430);
+  drive.moveDistance(1000);
+  drive.turnagle(40_deg);
+  drive.moveDistance(300);
+  tiltController.setTarget(2800);
+  tiltController.waitUntilSettled();
+
 }
 
 

@@ -45,12 +45,12 @@ void customforward(int units,int voltage)
     setDrive(0,0);
 }
 
-void himeturnleft(int turndeg)//should be same values
+void himeturnleft(int turndeg)//should be same values (430 works as 180deg )	himeturnleft(430);
 {
   resetdriversencoders();
-  while(driveRightFront.get_position()< turndeg)
+  while(driveLeftFront.get_position()< turndeg)
   {
-    setDrive(0,12000);
+    setDrive(30,12000);//50 for left
     pros::delay(10);
   }
   setDrive(-10,-10);
