@@ -66,9 +66,8 @@ void competition_initialize() {}
  */
 void autonomous()
 {//just put the void that you want in here
-himeturn();
+easyonelmao();
 }
-
 
 void opcontrol()
 {

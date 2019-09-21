@@ -83,7 +83,10 @@ void opcontrol(void);
 #include "okapi/impl/control/async/asyncControllerFactory.hpp"
 ////////////////////////////////////////////////////////////////////////////////
 #include "control headers/globals.hpp"
-
+#include "control headers/drivecontrol.hpp"
+#include "control headers/armcontrol.hpp"
+#include "control headers/intakecontrol.hpp"
+#include "control headers/traycontrol.hpp"
 #endif
 
 #endif  // _PROS_MAIN_H_

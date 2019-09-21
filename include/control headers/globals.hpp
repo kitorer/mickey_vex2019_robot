@@ -36,16 +36,7 @@ int clipnum(int input, int clip);
 
 void toggle();
 
-void ArmMove(int MoveVal);
-
-void Arm_control(void*);
-
-void Tray_control(void*);
-
-void Intake_control(void*);
-
-void Tank_control(void*);
-
+///////////////// autons
 void easyonelmao();
 void himeturn();
 void lmaodoesntwork();

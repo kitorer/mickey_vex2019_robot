@@ -9,9 +9,6 @@ void easyonelmao()
   drive.setMaxVelocity(100);
   ////////////////////////////////////////////////
 
-  intakeController.setTarget(7000);
-  drive.moveDistance(2600);
-
   intakeController.setTarget(4000);
   drive.moveDistance(1000);
   drive.stop();
@@ -20,17 +17,20 @@ void easyonelmao()
 
   drive.stop();
   drive.turnAngle(60_deg);
-  drive.moveDistance(2600);
-  tiltController.setTarget(5600);
+  drive.moveDistance(1300);
+  tiltController.setTarget(2800);
   tiltController.waitUntilSettled();
-  intakeController.setTarget(-80);
+  intakeController.setTarget(-100);
   intakeController.stop();
-  drive.moveDistance(-400);
+  drive.moveDistance(-300);
 }
 void himeturn()
 {
-  drive.moveDistance(1000);
-
+  himeturnleft(1500);
+  drive.turnAngle(90);
+  drive.moveDistance(500);
+  drive.turnAngle(90);
+  himeturnleft(1500);
 }
 
 
@@ -43,8 +43,6 @@ void lmaodoesntwork()
 }//
 void test()
 {
-drive.stop();
-ArmController.reset();
-tiltController.reset();
-intakeController.reset();
+drive.moveDistance(1000);
+
 }
