@@ -42,3 +42,8 @@ void toggle()
     toggleval =0;
   }
 }
+
+void slowdown() //returns an integer that slowly decreases
+{
+
+}

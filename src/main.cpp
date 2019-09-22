@@ -66,15 +66,14 @@ void competition_initialize() {}
  */
 void autonomous()
 {//just put the void that you want in here
-  himeturnleft(430);
-
+  //himeturnleft(430);
+auto_tray();
 }
 
 void opcontrol()
 {
  while (true)
 	 {
-
 pros::Task Tank_control_t (Tank_control, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "Tank_control");
 pros::Task Arm_control_t (Arm_control, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "Arm_control");
 pros::Task Tray_control_t (Tray_control, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "Tray_control");

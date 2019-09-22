@@ -1,7 +1,7 @@
 #include "main.h"
 
 
-void setDrive(int left, int right)//voltage left & right
+void setDrive(int left, int right)//VELOCITY left & right
 {
   driveRightBack = right;
   driveRightFront = right;
@@ -21,6 +21,9 @@ setDrive(leftjoystick,rightjoystick);
   driveRightFront.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
   driveLeftFront.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 }
+
+
+
 
 void resetdriversencoders()
 {

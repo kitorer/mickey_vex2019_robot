@@ -36,6 +36,7 @@ int clipnum(int input, int clip);
 
 void toggle();
 
+
 ///////////////// autons
 void easyonelmao();
 void himeturn();

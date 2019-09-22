@@ -73,14 +73,14 @@ void arm_pid(void*)
 void
 Arm_macro (void*) {
 	pros::Controller master(CONTROLLER_MASTER);
-  pros::Task arm_t (arm_pid, (void*) "PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "arm_pid");
+pros::Task arm_t (arm_pid);
 	bool was_pid;
-	while (true) {
-		if (master.get_digital(DIGITAL_B)) {
+	//while (true) {
+		if (master.get_digital(DIGITAL_X)) {
 			was_pid = true;
 			arm_t.resume();
 			set_arm_pid(2300);
-		} else if (master.get_digital(DIGITAL_DOWN)) {
+		} else if (master.get_digital(DIGITAL_A)) {
 			was_pid = true;
 			arm_t.resume();
 			set_arm_pid(1800);
@@ -93,7 +93,7 @@ Arm_macro (void*) {
 					set_arm(0);
 				}
 			}
-		}
+	//	}
 
 		if (!was_pid) {
 			arm_t.suspend();
