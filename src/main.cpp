@@ -66,7 +66,7 @@ void competition_initialize() {}
  */
 void autonomous()
 {//just put the void that you want in here
-himeturn();
+  himeturnleft(430);
 
 }
 
@@ -79,7 +79,7 @@ pros::Task Tank_control_t (Tank_control, (void*)"PROS", TASK_PRIORITY_DEFAULT,TA
 pros::Task Arm_control_t (Arm_control, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "Arm_control");
 pros::Task Tray_control_t (Tray_control, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "Tray_control");
 pros::Task Intake_control_t (Intake_control, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "Intake_control");
-
+//pros::Task Arm_macro_t (Arm_macro, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "Arm_macro");
 pros::delay(20);
  }//while
 	 return;

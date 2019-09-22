@@ -30,11 +30,10 @@ void himeturn()
   drive.moveDistance(1000);
   himeturnleft(430);
   drive.moveDistance(1000);
-  drive.turnagle(40_deg);
+  drive.turnAngle(40_deg);
   drive.moveDistance(300);
   tiltController.setTarget(2800);
   tiltController.waitUntilSettled();
-
 }
 
 

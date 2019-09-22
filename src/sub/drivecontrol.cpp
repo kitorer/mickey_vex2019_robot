@@ -50,7 +50,7 @@ void himeturnleft(int turndeg)//should be same values (430 works as 180deg )	him
   resetdriversencoders();
   while(driveLeftFront.get_position()< turndeg)
   {
-    setDrive(30,12000);//50 for left
+    setDrive(30,200);//50 for left
     pros::delay(10);
   }
   setDrive(-10,-10);
