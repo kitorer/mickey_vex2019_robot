@@ -1,5 +1,11 @@
 #include "main.h"
 
+void intakereset ()
+{
+  Lintake.tare_position();
+  Rintake.tare_position();
+}
+////////////////////////////////////////////////////////////////
 void Intake_control(void*)
 {
   if (master.get_digital(DIGITAL_L1)){
@@ -17,7 +23,7 @@ void Intake_control(void*)
   Lintake.move_velocity(0);//bug: motor is too powerful
 }
 }
-
+///////////////////////////////////////////////////////////////////////
 
 //HELPER FUNCTIONS
 void setIntake (int power){
@@ -30,4 +36,22 @@ void setIntakeMotors(void*){
   int intakePower = 12000 *
   (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)-master.get_digital(pros::E_CONTROLLER_DIGITAL_L1));
   setIntake(intakePower);
+}
+
+//auton or macro use
+void intake_macroforward(int distance ,int power)
+{
+    intakereset();
+  while(Lintake.get_position() < distance && Rintake.get_position() < distance )
+  {
+     setIntake(power);
+  }
+}
+void intake_macrobackwards(int distance ,int power)
+{
+    intakereset();
+  while(Lintake.get_position() > distance && Rintake.get_position() > distance )
+  {
+     setIntake(power);
+  }
 }

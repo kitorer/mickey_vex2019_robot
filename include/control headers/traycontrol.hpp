@@ -3,8 +3,12 @@
 
 void Tray_control(void*);
 
+void Tray_control();
+
 void setTrayAnglerMotor(void*);
 
 void auto_tray();
 
 void setTrayAngler (int power);
+
+void tray_macro(void*);
