@@ -39,19 +39,15 @@ void setIntakeMotors(void*){
 }
 
 //auton or macro use
-void intake_macroforward(int distance ,int power)
+void intake_macro(int distance)
 {
     intakereset();
-  while(Lintake.get_position() < distance && Rintake.get_position() < distance )
+  while(Lintake.get_position() < distance)//forward
   {
-     setIntake(power);
+     setIntake(12000);
   }
-}
-void intake_macrobackwards(int distance ,int power)
-{
-    intakereset();
-  while(Lintake.get_position() > distance && Rintake.get_position() > distance )
+  while(Lintake.get_position() > distance)//backward
   {
-     setIntake(power);
+     setIntake(-3000);
   }
 }
