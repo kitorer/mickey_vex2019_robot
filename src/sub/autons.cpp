@@ -1,5 +1,6 @@
 #include "main.h"
 
+
 void easyonelmao()
 {
   intakeController.setMaxVelocity(1000);
@@ -14,8 +15,7 @@ void easyonelmao()
   drive.turnAngle(30_deg);
   drive.moveDistance(1300);
   auto_tray();
-  intake_macro(-100);
-  drive.moveDistance(-300);
+	stackingintake(-200,30);
 }
 void himeturn()
 {

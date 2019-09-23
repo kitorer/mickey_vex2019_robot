@@ -1,8 +1,13 @@
 #include "main.h"
 
+void stackingintake(int distance,int velocity)//okapi
+{
+    intakeController.setMaxVelocity(velocity);
+    intakeController.setTarget(distance);
+}
+
 void intakereset ()
 {
-  Lintake.tare_position();
   Rintake.tare_position();
 }
 ////////////////////////////////////////////////////////////////
@@ -38,15 +43,15 @@ void setIntakeMotors(void*){
   setIntake(intakePower);
 }
 
-//auton or macro use
-void intake_macro(int distance)
+//auton or macro use (doesnt work okapi is used instead)
+void intake_macro(int distance,int voltage)
 {
     intakereset();
-  while(Lintake.get_position() < distance)//forward
+  if(Rintake.get_position() < distance)//forward
   {
-     setIntake(12000);
+     setIntake(1200);
   }
-  while(Lintake.get_position() > distance)//backward
+  if(Rintake.get_position() > distance)//backward
   {
      setIntake(-3000);
   }
