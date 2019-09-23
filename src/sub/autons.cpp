@@ -1,7 +1,7 @@
 #include "main.h"
 
 
-void easyonelmao()
+void redsidredsideUnprotected_5()
 {
   intakeController.setMaxVelocity(1000);
   ArmController.setMaxVelocity(100);
@@ -10,21 +10,25 @@ void easyonelmao()
   ////////////////////////////////////////////////
 
   intakeController.setTarget(4000);
-  drive.moveDistance(1000);
+  drive.moveDistance(1400);
   drive.stop();
   drive.turnAngle(30_deg);
-  drive.moveDistance(1300);
+  drive.moveDistance(1100);
+  stackingintake(-100,30);
   auto_tray();
-	stackingintake(-200,30);
+  pros::delay(1000);
+	stackingintake(-50,30);
+  drive.moveDistance(-200);
+  intakeController.stop();
 }
-void himeturn()
+void redsidredsideUnprotected_10()
 {
   intakeController.setTarget(5000);
   drive.moveDistance(1000);
   himeturnleft(430);
   drive.moveDistance(1000);
-  drive.turnAngle(40_deg);
-  drive.moveDistance(300);
+  drive.turnAngle(65_deg);
+  drive.moveDistance(400);
   tiltController.setTarget(2800);
   tiltController.waitUntilSettled();
 }
