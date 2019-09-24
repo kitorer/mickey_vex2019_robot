@@ -1,8 +1,7 @@
 #include "main.h"
 
 
-void redsidredsideUnprotected_5()
-{
+void redsidredsideUnprotected_5(){
   intakeController.setMaxVelocity(1000);
   ArmController.setMaxVelocity(100);
   tiltController.setMaxVelocity(100);
@@ -21,8 +20,7 @@ void redsidredsideUnprotected_5()
   drive.moveDistance(-200);
   intakeController.stop();
 }
-void redsidredsideUnprotected_10()
-{
+void redsidredsideUnprotected_10(){
   intakeController.setTarget(5000);
   drive.moveDistance(1000);
   himeturnleft(430);

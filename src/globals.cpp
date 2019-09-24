@@ -30,16 +30,14 @@ AsyncPosIntegratedController ArmController = AsyncControllerFactory::posIntegrat
 AsyncPosIntegratedController intakeController = AsyncControllerFactory::posIntegrated({1,-10});
 
 
-int sgn(int input)
-{
+int sgn(int input){
   if (input>0)
     return 1;
   else if (input < 0)
     return -1;
   return 0;
 }
-int clipnum(int input, int clip)
-{
+int clipnum(int input, int clip){
   if (input > clip)
     return clip;
   else if (input < clip)
@@ -49,8 +47,7 @@ int clipnum(int input, int clip)
 
 int toggleval = 0;
 
-void toggle()
-{
+void toggle(){
   if (master.get_digital(DIGITAL_B))
   {
     toggleval =1;
@@ -61,7 +58,7 @@ void toggle()
   }
 }
 
-void slowdown() //returns an integer that slowly decreases
-{
+void slowdown(){ //returns an integer that slowly decreases
+
 
 }
