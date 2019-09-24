@@ -1,16 +1,14 @@
 #include "main.h"
 
 
-void setDrive(int left, int right)//VELOCITY left & right
-{
+void setDrive(int left, int right){//VELOCITY left & right
   driveRightBack = right;
   driveRightFront = right;
   driveLeftBack = left;
   driveLeftFront = left;
 }
 
-void Tank_control(void* param)
-{
+void Tank_control(void* param){
 int  rightjoystick = master.get_analog(ANALOG_RIGHT_Y);
 int  leftjoystick = master.get_analog(ANALOG_LEFT_Y);
 
@@ -25,21 +23,18 @@ setDrive(leftjoystick,rightjoystick);
 
 
 
-void resetdriversencoders()
-{
+void resetdriversencoders(){
   driveRightBack.tare_position();
   driveLeftBack.tare_position();
   driveRightFront.tare_position();
   driveLeftFront.tare_position();
 }
-void customforward(int units,int voltage)
-{
+void customforward(int units,int voltage){
   resetdriversencoders();
   //reset motor encoders
   //drive forward unitl units are reaches
   //brake
-  while(driveLeftFront.get_position()< units)
-  {
+  while(driveLeftFront.get_position()< units){
     setDrive(voltage,voltage);
     pros::delay(10);
   }
@@ -48,11 +43,10 @@ void customforward(int units,int voltage)
     setDrive(0,0);
 }
 
-void himeturnleft(int turndeg)//should be same values (430 works as 180deg )	himeturnleft(430);
-{
+void himeturnleft(int turndeg){//should be same values (430 works as 180deg )	himeturnleft(430);
+
   resetdriversencoders();
-  while(driveLeftFront.get_position()< turndeg)
-  {
+  while(driveLeftFront.get_position()< turndeg){
     setDrive(30,200);//50 for left
     pros::delay(10);
   }

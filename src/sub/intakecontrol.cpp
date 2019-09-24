@@ -1,18 +1,15 @@
 #include "main.h"
 
-void stackingintake(int distance,int velocity)//okapi
-{
+void stackingintake(int distance,int velocity){//okapi
     intakeController.setMaxVelocity(velocity);
     intakeController.setTarget(distance);
 }
 
-void intakereset ()
-{
+void intakereset (){
   Rintake.tare_position();
 }
 ////////////////////////////////////////////////////////////////
-void Intake_control(void*)
-{
+void Intake_control(void*){
   if (master.get_digital(DIGITAL_L1)){
   Lintake.move_voltage(12000); // This is 100 because it's a 100rpm motor
   Rintake.move_voltage(12000);
@@ -47,12 +44,10 @@ void setIntakeMotors(void*){
 void intake_macro(int distance,int voltage)
 {
     intakereset();
-  if(Rintake.get_position() < distance)//forward
-  {
+  if(Rintake.get_position() < distance){//forward
      setIntake(1200);
   }
-  if(Rintake.get_position() > distance)//backward
-  {
+  if(Rintake.get_position() > distance){//backward
      setIntake(-3000);
   }
 }

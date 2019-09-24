@@ -1,17 +1,6 @@
 #include "main.h"
 
-void resettrayencoders()
-{
-  Tray.tare_position();
-}
 
-void tray_macro(void*)
-{
-  while(master.get_digital(DIGITAL_LEFT))
-  {
-  auto_tray();
-  }
-}
 ////////////////////////////////////////////////////////////////////////
 void Tray_control()
 {
@@ -41,27 +30,29 @@ void setTrayAnglerMotor(void*){
   set_arm(trayAnglerPower);
 }
 
-//auton/macro function
+//auton function
 void auto_tray()//should be same values (430 works as 180deg )	himeturnleft(430);
 {
-  resettrayencoders();
-  while(Tray.get_position()< 2600)
-  {
-    if(Tray.get_position()<1300)
-    {
+  Tray.tare_position();
+  while(Tray.get_position()< 2600){
+    if(Tray.get_position()<1300){
     setTrayAngler(12000);//full power
     pros::delay(10);
     }
 
-    if(Tray.get_position()>1300 && Tray.get_position()<2600)
-    {
+    if(Tray.get_position()>1300 && Tray.get_position()<2600){
     setTrayAngler(6000);//full power
     pros::delay(10);
     }
-    else
-    {
+    else{
     Tray.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
     }
   }
     setTrayAngler(0);
+}
+
+void tray_macro(void*){//macro function
+  while(master.get_digital(DIGITAL_LEFT)){
+  auto_tray();
+  }
 }

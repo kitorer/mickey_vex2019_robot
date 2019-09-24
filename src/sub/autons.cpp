@@ -1,8 +1,7 @@
 #include "main.h"
 
 
-void easyonelmao()
-{
+void easyonelmao(){
   intakeController.setMaxVelocity(1000);
   ArmController.setMaxVelocity(100);
   tiltController.setMaxVelocity(100);
@@ -17,8 +16,7 @@ void easyonelmao()
   auto_tray();
 	stackingintake(-200,30);
 }
-void himeturn()
-{
+void himeturn(){
   intakeController.setTarget(5000);
   drive.moveDistance(1000);
   himeturnleft(430);
@@ -30,15 +28,13 @@ void himeturn()
 }
 
 
-void lmaodoesntwork()
-{
+void lmaodoesntwork(){
   profileController.generatePath({Point{0_ft, 0_ft, 0_deg}, Point{3_ft, 0_ft, 0_deg}}, "A");
   profileController.setTarget("A");
   profileController.waitUntilSettled();
   profileController.removePath("A");
 }//
-void test()
-{
+void test(){
 drive.moveDistance(1000);
 
 }

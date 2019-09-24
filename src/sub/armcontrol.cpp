@@ -35,8 +35,7 @@ void ArmMcaro(void*)//defective code DONOT USE
 
 */
 
-void Arm_control(void*)//opctrl
-{
+void Arm_control(void*){//opctrl
   if (master.get_digital(DIGITAL_R1)){
    arm.move_voltage(12000); // This is 100 because it's a 100rpm motor
   }

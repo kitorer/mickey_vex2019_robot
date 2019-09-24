@@ -40,7 +40,9 @@ void initialize() {
  * the VEX Competition Switch, following either autonomous or opcontrol. When
  * the robot is enabled, this task will exit.
  */
-void disabled() {}
+void disabled() {
+
+}
 
 /**
  * Runs after initialize(), and before autonomous when connected to the Field
@@ -51,7 +53,9 @@ void disabled() {}
  * This task will exit when the robot is enabled and autonomous or opcontrol
  * starts.
  */
-void competition_initialize() {}
+void competition_initialize() {
+
+}
 
 /**
  * Runs the user autonomous code. This function will be started in its own task
@@ -64,16 +68,13 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-void autonomous()
-{//just put the void that you want in here
+void autonomous(){//just put the void that you want in here
   //himeturnleft(430);
 easyonelmao();
 }
 
-void opcontrol()
-{
- while (true)
-	 {
+void opcontrol(){
+ while (true){
 		 Tray_control();
 pros::Task Tank_control_t (Tank_control, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "Tank_control");
 pros::Task Arm_control_t (Arm_control, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "Arm_control");
