@@ -38,7 +38,7 @@ void toggle();
 
 
 ///////////////// autons
-void easyonelmao();
-void himeturn();
+void redsidredsideUnprotected_5();
+void redsidredsideUnprotected_10();
 void lmaodoesntwork();
 void test();
