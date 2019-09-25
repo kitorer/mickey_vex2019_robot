@@ -81,6 +81,7 @@ void opcontrol(void);
 // okapi files needed //////////////////////////////////////////////////////////
 #include "okapi/impl/chassis/controller/chassisControllerFactory.hpp"
 #include "okapi/impl/control/async/asyncControllerFactory.hpp"
+#include "okapi/api.hpp"
 ////////////////////////////////////////////////////////////////////////////////
 #include "control headers/globals.hpp"
 #include "control headers/drivecontrol.hpp"

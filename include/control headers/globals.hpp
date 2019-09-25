@@ -38,6 +38,7 @@ void toggle();
 
 
 ///////////////// autons
+void movestraight();
 void redsidredsideUnprotected_5();
 void redsidredsideUnprotected_10();
 void lmaodoesntwork();
