@@ -8,7 +8,7 @@ void redsidredsideUnprotected_5(){
   tiltController.setMaxVelocity(100);
   drive.setMaxVelocity(100);
   ////////////////////////////////////////////////
-/*
+
   intakeController.setTarget(4000);
   drive.moveDistance(1400);
   drive.stop();
@@ -20,8 +20,7 @@ void redsidredsideUnprotected_5(){
 	stackingintake(-50,30);
   drive.moveDistance(-200);
   intakeController.stop();
-  */
-  drive.moveDistance(10000);
+
 }
 void redsidredsideUnprotected_10(){
   intakeController.setTarget(5000);

@@ -9,3 +9,5 @@ void set_arm_pid(int input);
 void Arm_macro(void*);
 
 void set_arm(int input);
+
+void arm_move(int distance, int voltage);
