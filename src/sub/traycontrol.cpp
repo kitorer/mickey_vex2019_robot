@@ -51,9 +51,3 @@ void auto_tray(){//should be same values (430 works as 180deg )	himeturnleft(430
   }
     setTrayAngler(0);
 }
-
-void tray_macro(void*){//macro function
-  while(master.get_digital(DIGITAL_LEFT)){
-  auto_tray();
-  }
-}
