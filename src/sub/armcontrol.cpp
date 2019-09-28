@@ -44,7 +44,7 @@ void arm_move(int distance, int voltage){
 
 void arm_macro(){
 
-  if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
+  if (master.get_digital(pros::E_CONTROLLER_DIGITAL_X)) {
     count++;
     if (count % 4 == 1){
       arm_move(1500,12000);
