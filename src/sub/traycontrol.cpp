@@ -34,14 +34,14 @@ void setTrayAnglerMotor(void*){
 void auto_tray(){//should be same values (430 works as 180deg )	himeturnleft(430);
 
   Tray.tare_position();
-  while(Tray.get_position()<2600){
-    if(Tray.get_position()<1340)
+  while(Tray.get_position()<2680){
+    if(Tray.get_position()<1500)
     {
     setTrayAngler(12000);//full power
     pros::delay(10);
     }
 
-    if(Tray.get_position()>1300 && Tray.get_position()<2600)  {
+    if(Tray.get_position()>1500 && Tray.get_position()<2680)  {
     setTrayAngler(6100);//full power
     pros::delay(10);
     }

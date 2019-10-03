@@ -46,7 +46,7 @@ int clipnum(int input, int clip){
 }
 
 int toggleval = 0;
-
+/*
 void toggle(){
   if (master.get_digital(DIGITAL_B))
   {
@@ -57,7 +57,7 @@ void toggle(){
     toggleval =0;
   }
 }
-
+*/
 void slowdown(){ //returns an integer that slowly decreases
 
 

@@ -41,18 +41,16 @@ void setIntakeMotors(void*){
 }
 
 //auton or macro use (doesnt work okapi is used instead)
-void intake_macro(int distance,int voltage)
+/*void intake_-50()
 {
-  while(abs(Rintake.get_position()) < distance)
-  {
       intakereset();
-      if(abs(Rintake.get_position()) < distance)//forward
+      if(abs(Rintake.get_position()) < 50)//forward
       {
-     setIntake(voltage);
+     setIntake(-3000);
       }
       else
       {
       setIntake(0);
-    }
 }
 }
+*/
