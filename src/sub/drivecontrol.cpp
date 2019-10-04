@@ -2,8 +2,8 @@
 
 
 void setDrive(int left, int right){//VELOCITY left & right
-  driveRightBack = right;
-  driveRightFront = right;
+  driveRightBack = right-10;
+  driveRightFront = right-10;
   driveLeftBack = left;
   driveLeftFront = left;
 }
@@ -29,13 +29,13 @@ void resetdriversencoders(){
   driveRightFront.tare_position();
   driveLeftFront.tare_position();
 }
-void customforward(int units,int voltage){
+void customforward(int units,int velocity){
   resetdriversencoders();
   //reset motor encoders
   //drive forward unitl units are reaches
   //brake
   while(driveLeftFront.get_position()< units){
-    setDrive(voltage,voltage);
+    setDrive(velocity,velocity-10);
     pros::delay(10);
   }
   setDrive(-10,-10);
