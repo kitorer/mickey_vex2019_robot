@@ -35,7 +35,6 @@ void setArmMotor(){
 
 void arm_move(int distance, int voltage){
    while(abs(arm.get_position()) < distance){
-     arm.tare_position();
      arm.move_voltage(voltage);
    }
    arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
@@ -52,11 +51,9 @@ void arm_macro(){
     else if (count % 4 == 2){
       arm_move(1800,12000);
     }
-    else if(count % 4 == 3){
-        arm_move(2300,12000);
-    }
     else{
-
+    arm_move(0,-12000);
+     arm.tare_position();
     }
   }
 }

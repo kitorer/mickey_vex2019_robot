@@ -8,20 +8,29 @@ void setDrive(int left, int right){//VELOCITY left & right
   driveLeftFront = left;
 }
 
+void SetDriveSlower(int left, int right){
+  driveRightBack = right-90;
+  driveRightFront = right-90;
+  driveLeftBack = left-80;
+  driveLeftFront = left-80;
+}
+
 void Tank_control(void* param){
+
 int  rightjoystick = master.get_analog(ANALOG_RIGHT_Y);
 int  leftjoystick = master.get_analog(ANALOG_LEFT_Y);
 
-setDrive(leftjoystick,rightjoystick);
-
+if(master.get_digital(DIGITAL_L1)){
+   SetDriveSlower(leftjoystick, rightjoystick);
+}
+else{
+  setDrive(leftjoystick,rightjoystick);
+}
   driveRightBack.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
   driveLeftBack.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
   driveRightFront.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
   driveLeftFront.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 }
-
-
-
 
 void resetdriversencoders(){
   driveRightBack.tare_position();
