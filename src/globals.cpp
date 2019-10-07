@@ -29,7 +29,7 @@ AsyncPosIntegratedController tiltController = AsyncControllerFactory::posIntegra
 AsyncPosIntegratedController ArmController = AsyncControllerFactory::posIntegrated(9);
 AsyncPosIntegratedController intakeController = AsyncControllerFactory::posIntegrated({1,-10});
 
-
+/*
 int sgn(int input){
   if (input>0)
     return 1;
@@ -44,7 +44,7 @@ int clipnum(int input, int clip){
     return -clip;
   return input;
 }
-
+*/
 int toggleval = 0;
 int count;
 /*

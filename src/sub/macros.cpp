@@ -10,15 +10,12 @@
       count++;
       if (count % 4 == 1){
         arm_move(1500,12000);
-      }
-      else if (count % 4 == 2){
+        set_tray(300, 12000);
+      }     else if (count % 4 == 2){
         arm_move(1800,12000);
-      }
-      else if(count % 4 == 3){
-          arm_move(2300,12000);
-      }
-      else{
-
-      }
-    }
-  }
+      }    else if(count % 4 == 3){
+        arm_move(2300,12000);
+      }else{
+        count=0;
+        set_tray(300, -12000);
+      }}}

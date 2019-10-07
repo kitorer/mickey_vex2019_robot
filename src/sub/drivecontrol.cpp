@@ -22,8 +22,7 @@ int  leftjoystick = master.get_analog(ANALOG_LEFT_Y);
 
 if(master.get_digital(DIGITAL_L1)){
    SetDriveSlower(leftjoystick, rightjoystick);
-}
-else{
+}else{
   setDrive(leftjoystick,rightjoystick);
 }
   driveRightBack.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);

@@ -77,13 +77,14 @@ redsidredsideUnprotected_10();
 
 void opcontrol(){
  while (true){
-		 Tray_control();
+	 
 pros::Task Tank_control_t (Tank_control, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "Tank_control");
 pros::Task Arm_control_t (Arm_control, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "Arm_control");
 pros::Task setTrayAnglerMotor_t (setTrayAnglerMotor, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "setTrayAnglerMotor");
 pros::Task Intake_control_t (Intake_control, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "Intake_control");
 pros::Task arm_macro_t (arm_macro, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "arm_macro");
 pros::Task tray_macro_t (tray_macro, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "tray_macro");
+pros::Task Tray_control_t (Tray_control, (void*)"Pros", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "Tray_control");
 pros::delay(20);
  }//while
 	 return;

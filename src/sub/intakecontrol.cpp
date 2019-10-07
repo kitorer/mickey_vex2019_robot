@@ -13,18 +13,15 @@ void Intake_control(void*){
   if (master.get_digital(DIGITAL_L1)){
   Lintake.move_voltage(12000); // This is 100 because it's a 100rpm motor
   Rintake.move_voltage(12000);
-  }
- else if (master.get_digital(DIGITAL_L2)){
+  } else if (master.get_digital(DIGITAL_L2)){
   Rintake.move_voltage(-12000);
   Lintake.move_voltage(-12000);
- }
- else{
+ }  else{
    Rintake.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
    Lintake.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
   Rintake.move_velocity(0);
   Lintake.move_velocity(0);//bug: motor is too powerful
-}
-}
+}}
 ///////////////////////////////////////////////////////////////////////
 
 //HELPER FUNCTIONS
