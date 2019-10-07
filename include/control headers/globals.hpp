@@ -4,7 +4,7 @@ using namespace okapi;
 
 // Variables
 extern int toggleval;
-
+extern int count;
 // Controller
 extern pros::Controller master;
 

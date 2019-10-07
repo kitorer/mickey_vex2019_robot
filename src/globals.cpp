@@ -46,6 +46,7 @@ int clipnum(int input, int clip){
 }
 
 int toggleval = 0;
+int count;
 /*
 void toggle(){
   if (master.get_digital(DIGITAL_B))

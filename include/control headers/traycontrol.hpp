@@ -3,7 +3,6 @@
 
 void Tray_control(void*);
 
-void Tray_control();
 
 void setTrayAnglerMotor(void*);
 
