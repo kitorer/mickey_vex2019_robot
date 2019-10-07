@@ -35,9 +35,28 @@ void setArmMotor(){
 */
 void arm_move(int distance, int voltage){
    while(abs(arm.get_position()) < distance){
-     arm.tare_position();
      arm.move_voltage(voltage);
    }
    arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
    arm.move_velocity(0);
 }
+<<<<<<< HEAD
+=======
+
+void arm_macro(){
+
+  if (master.get_digital(pros::E_CONTROLLER_DIGITAL_X)) {
+    count++;
+    if (count % 4 == 1){
+      arm_move(1500,12000);
+    }
+    else if (count % 4 == 2){
+      arm_move(1800,12000);
+    }
+    else{
+    arm_move(0,-12000);
+     arm.tare_position();
+    }
+  }
+}
+>>>>>>> 3c02fd7abdd530f38517ffd44d070fb2f4bac683
