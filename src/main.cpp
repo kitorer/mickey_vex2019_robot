@@ -70,14 +70,18 @@ void competition_initialize() {
  */
 void autonomous(){//just put the void that you want in here
   //himeturnleft(430);
-redsidredsideUnprotected_10();
+//redsidredsideUnprotected_10();
 //redsidredsideUnprotected_5();
-
+//himeturnleft(430);
+//tiltController.setTarget(200);
+//arm_move(400,12000);
+//while(arm.get_position()>380 && arm.get_position()<420);
+//ArmController.setTarget(-300);
+auto_tray();
 }
-
 void opcontrol(){
  while (true){
-	 
+
 pros::Task Tank_control_t (Tank_control, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "Tank_control");
 pros::Task Arm_control_t (Arm_control, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "Arm_control");
 pros::Task setTrayAnglerMotor_t (setTrayAnglerMotor, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "setTrayAnglerMotor");
@@ -86,6 +90,7 @@ pros::Task arm_macro_t (arm_macro, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STA
 pros::Task tray_macro_t (tray_macro, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "tray_macro");
 pros::Task Tray_control_t (Tray_control, (void*)"Pros", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "Tray_control");
 pros::delay(20);
+
  }//while
 	 return;
 }//void

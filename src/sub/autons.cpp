@@ -6,9 +6,10 @@ void redsidredsideUnprotected_5(){
   intakeController.setMaxVelocity(1000);
   ArmController.setMaxVelocity(100);
   tiltController.setMaxVelocity(100);
-  drive.setMaxVelocity(100);
+  drive.setMaxVelocity(75);
   ////////////////////////////////////////////////
-
+  arm_move(400,12000);
+  
   intakeController.setTarget(4000);
   drive.moveDistance(1400);
   drive.stop();
@@ -41,11 +42,13 @@ void movestraight(){
   drive.moveDistance(10000);
 }
 void lmaodoesntwork(){
-//  profileController.generatePath({Point{0_ft, 0_ft, 0_deg}, Point{3_ft, 0_ft, 0_deg}}, "A");
-//  profileController.setTarget("A");
-//  profileController.waitUntilSettled();
-//  profileController.removePath("A");
+  profileController.generatePath({Point{8_ft, 0_ft, 0_deg}, Point{8_ft, 3_ft, 0_deg}}, "A");
+  profileController.setTarget("A");
+  profileController.waitUntilSettled();
+  profileController.removePath("A");
 }//
+void skills(){
+}
 void test(){
 drive.moveDistance(1000);
 

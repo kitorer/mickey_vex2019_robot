@@ -6,7 +6,8 @@
 void Arm_control(void*)//opctrl
 {
   if (master.get_digital(DIGITAL_R1)){
-   arm.move_voltage(12000); // This is 100 because it's a 100rpm motor
+
+   arm.move_voltage(9000); // This is 100 because it's a 100rpm motor
   }  else if (master.get_digital(DIGITAL_R2)){
    arm.move_voltage(-12000);
   }  else{
@@ -30,9 +31,7 @@ void setArmMotor(){
 }
 */
 void arm_move(int distance, int voltage){
-   while(abs(arm.get_position()) < distance){
-     arm.move_voltage(voltage);
-   }
+   while(abs(arm.get_position()) < distance){arm.move_voltage(voltage);}
    arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
    arm.move_velocity(0);
 }
