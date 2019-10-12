@@ -4,11 +4,11 @@
 ////////////////////////////////////////////////////////////////////////
 void Tray_control(void*)//with the arm
 {
-  if(master.get_digital(DIGITAL_R1) && Tray.get_position() <300) {
+  if(master.get_digital(DIGITAL_R1) && Tray.get_position() <400) {
    Tray.move_voltage(12000); // This is 100 because it's a 100rpm motor
    Tray.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 } else if(master.get_digital(DIGITAL_R2) && Tray.get_position() >0){
-  Tray.move_voltage(-4000);
+  Tray.move_voltage(-8000);
 }}
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -41,12 +41,12 @@ void auto_tray(void)
 {
   Tray.tare_position();
   Tray.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-  while (Tray.get_position() < 2680)
+  while (Tray.get_position() < 2700)
   {
-        if (Tray.get_position() < 1500)
+//        if (Tray.get_position() < 1500)
             setTrayAngler(12000); // full power
-        else
-            setTrayAngler(6100); // half power
+//        else
+//            setTrayAngler(6100); // half power
 
         pros::delay(10);
    }

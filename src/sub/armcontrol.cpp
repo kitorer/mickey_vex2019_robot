@@ -31,7 +31,10 @@ void setArmMotor(){
 }
 */
 void arm_move(int distance, int voltage){
-   while(abs(arm.get_position()) < distance){arm.move_voltage(voltage);}
+    arm.tare_position();
+    arm.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+   while(arm.get_position() < distance){
+   arm.move_voltage(voltage);}
    arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
    arm.move_velocity(0);
 }
