@@ -73,8 +73,8 @@ void autonomous(){//just put the void that you want in here
 //redsidredsideUnprotected_10();
 //redsidredsideUnprotected_5();
 //himeturnleft(430);
-//tiltController.setTarget(200);
-
+movestraight();
+//blusidredsideUnprotected_5();
 }
 void opcontrol(){
  while (true){

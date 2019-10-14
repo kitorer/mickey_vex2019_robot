@@ -43,3 +43,4 @@ void redsidredsideUnprotected_5();
 void redsidredsideUnprotected_10();
 void lmaodoesntwork();
 void test();
+void blusidredsideUnprotected_5();

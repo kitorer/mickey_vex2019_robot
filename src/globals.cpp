@@ -27,7 +27,7 @@ AsyncMotionProfileController profileController = AsyncControllerFactory::motionP
 
 AsyncPosIntegratedController tiltController = AsyncControllerFactory::posIntegrated(-8);
 AsyncPosIntegratedController ArmController = AsyncControllerFactory::posIntegrated(9);
-AsyncPosIntegratedController intakeController = AsyncControllerFactory::posIntegrated({1,-10});
+AsyncPosIntegratedController intakeController = AsyncControllerFactory::posIntegrated({2,-10});
 
 /*
 int sgn(int input){
