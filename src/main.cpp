@@ -86,6 +86,7 @@ pros::Task Intake_control_t (Intake_control, (void*)"PROS", TASK_PRIORITY_DEFAUL
 //pros::Task arm_macro_t (arm_macro, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "arm_macro");
 pros::Task tray_macro_t (tray_macro, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "tray_macro");
 pros::Task Tray_control_t (Tray_control, (void*)"Pros", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "Tray_control");
+pros::Task tray_reverse_macro_t (tray_reverse_macro, (void*)"Pros", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "tray_reverse_macro");
 pros::delay(20);
 
  }//while

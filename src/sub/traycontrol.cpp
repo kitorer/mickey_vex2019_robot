@@ -53,3 +53,20 @@ void auto_tray(void)
    Tray.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
    setTrayAngler(0);
 }
+
+void reverse_tray(void)
+{
+  //Tray.tare_position();
+  Tray.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+  while (Tray.get_position() > 0)
+  {
+//        if (Tray.get_position() < 1500)
+            setTrayAngler(-12000); // full power
+//        else
+//            setTrayAngler(6100); // half power
+
+        pros::delay(10);
+   }
+   Tray.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+   setTrayAngler(0);
+}
