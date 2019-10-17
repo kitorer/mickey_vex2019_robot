@@ -39,8 +39,11 @@ void toggle();
 
 ///////////////// autons
 void movestraight();
-void redsidredsideUnprotected_5();
+void Red_SideUnprotected_5();
+void Blu_SideUnprotected_5();
 void redsidredsideUnprotected_10();
 void lmaodoesntwork();
 void test();
-void blusidredsideUnprotected_5();
+void blu_sideprotected();
+void skills();
+void red_Sideprotected();

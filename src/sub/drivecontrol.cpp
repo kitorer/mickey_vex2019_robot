@@ -1,4 +1,12 @@
 #include "main.h"
+void brake_coast(){
+
+   driveRightBack.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+   driveLeftBack.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+   driveRightFront.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+   driveLeftFront.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+
+}
 
 void setDrive(int left, int right){//VELOCITY left & right
  driveRightBack = right-10;
@@ -50,6 +58,7 @@ void customforward(int units,int velocity){
 }
 
 void himeturnleft(int turndeg){//should be same values (430 works as 180deg )	himeturnleft(430);
+
  resetdriversencoders();
  while(driveLeftFront.get_position()< turndeg){
    setDrive(30,200);//50 for left
@@ -67,6 +76,17 @@ void himeturnRight(int turndeg){
    pros::delay(10);
  }
  setDrive(-10,-10);
+ pros::delay(50);
+   setDrive(0,0);
+}
+
+void backleftturn(int turndeg){
+ resetdriversencoders();
+ while(driveRightFront.get_position()< turndeg){
+   setDrive(-100,-200);//50 for left
+   pros::delay(10);
+ }
+ setDrive(10,10);
  pros::delay(50);
    setDrive(0,0);
 }
