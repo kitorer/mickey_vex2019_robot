@@ -3,6 +3,7 @@
 void stackingintake(int distance,int velocity){//okapi
     intakeController.setMaxVelocity(velocity);
     intakeController.setTarget(distance);
+  //  intakeController.stop();
 }
 void intakereset (){
   Rintake.tare_position();

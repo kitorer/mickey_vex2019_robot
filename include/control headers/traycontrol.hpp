@@ -15,4 +15,4 @@ void set_tray(int distance, int voltage);
 
 void reverse_tray(void);
 
-void tray_reverse_macro(void*);
+void reverse_tray_macro(void*);
