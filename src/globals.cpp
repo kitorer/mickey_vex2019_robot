@@ -59,7 +59,3 @@ void toggle(){
   }
 }
 */
-void slowdown(){ //returns an integer that slowly decreases
-
-
-}
