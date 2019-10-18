@@ -8,6 +8,7 @@ void brake_coast(){
 
 }
 
+
 void setDrive(int left, int right){//VELOCITY left & right
  driveRightBack = right-10;
  driveRightFront = right-10;
@@ -43,19 +44,6 @@ void resetdriversencoders(){
  driveRightFront.tare_position();
  driveLeftFront.tare_position();
 }
-void customforward(int units,int velocity){
- resetdriversencoders();
- //reset motor encoders
- //drive forward unitl units are reaches
- //brake
- while(driveLeftFront.get_position()< units){
-   setDrive(velocity,velocity-10);
-   pros::delay(10);
- }
- setDrive(-10,-10);
- pros::delay(50);
-   setDrive(0,0);
-}
 
 void himeturnleft(int turndeg){//should be same values (430 works as 180deg )	himeturnleft(430);
 
@@ -89,4 +77,36 @@ void backleftturn(int turndeg){
  setDrive(10,10);
  pros::delay(50);
    setDrive(0,0);
+}
+
+void slowdown(int distance, float Kp, float Ki, float Kd){ //base pid
+resetdriversencoders();
+int avg_encoder_value = (driveRightFront.get_position()+driveLeftFront.get_position())/2;
+brake_coast();
+
+  //float Kp = 0.5; //P
+//  float Ki = 0.2; //I
+//  float Kd = 0.1; //D
+float error;
+float integral;
+float derivative;
+float previous_error;
+float speed;
+
+  while(avg_encoder_value < distance)
+  {
+  error = (distance) - (avg_encoder_value);
+  integral = integral + error;
+  	if(error == 0)
+  	{
+  	integral = 0;
+  	}
+  	if ( abs(error) > 40)
+  	{
+  	integral = 0;
+  	}
+  derivative = error - previous_error;previous_error = error;
+  speed = Kp*error + Ki*integral + Kd*derivative;
+  }
+setDrive(speed, speed);
 }

@@ -47,27 +47,18 @@ int clipnum(int input, int clip){
 */
 int toggleval = 0;
 int count;
-
-float Kp = 0.5; //P
-float Ki = 0.2; //I
-float Kd = 0.1; //D
-
-while(/* condition */)
-{
-error = (target value) - (sensor reading);
-integral = integral + error;
-	if (error = 0)
-	{
-	integral = 0;
-	}
-	if ( abs(error) > 40)
-	{
-	integral = 0;
-	}
-derivative = error - previous_error;previous_error = error;
-speed = Kp*error + Ki*integral + Kd*derivative;
+/*
+void toggle(){
+  if (master.get_digital(DIGITAL_B))
+  {
+    toggleval =1;
+  }
+  else if(master.get_digital_new_press(DIGITAL_B))
+  {
+    toggleval =0;
+  }
 }
-
+*/
 void slowdown(){ //returns an integer that slowly decreases
 
 
