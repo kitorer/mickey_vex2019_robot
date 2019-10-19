@@ -10,3 +10,5 @@ void himeturnleft(int turndeg);
 void himeturnRight(int turndeg);
 
 void backleftturn(int turndeg);
+
+void slowdown(int distance, float Kp, float Ki, float Kd);

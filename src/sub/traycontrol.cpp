@@ -41,7 +41,7 @@ void auto_tray(void)
 {
   Tray.tare_position();
   Tray.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-  while (Tray.get_position() < 2800)
+  while (Tray.get_position() < 2900)
   {
 //        if (Tray.get_position() < 1500)
             setTrayAngler(12000); // full power
