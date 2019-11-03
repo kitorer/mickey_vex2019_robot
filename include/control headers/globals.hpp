@@ -47,3 +47,28 @@ void test();
 void blu_sideprotected();
 void skills();
 void red_Sideprotected();
+//////////////////////////
+
+typedef struct {
+  float kp;
+  float ki;
+  float kd;
+
+  float currentL = 0;
+  float currentR =0;
+  float pi=3.14592653589;
+  float circ ;
+
+   float powerL;
+   float powerR;
+   float errorL;
+   float errorR;
+   float lastErrorL;
+   float lastErrorR;
+   float proportionL;
+   float proportionR;
+   float integralL;
+   float integralR;
+   float derivativeL;
+   float derivativeR;
+}PID;

@@ -78,24 +78,25 @@ void backleftturn(int turndeg){
  pros::delay(50);
    setDrive(0,0);
 }
-
-void slowdown(int distance, float Kp, float Ki, float Kd){ //base pid
+/*
+void slowdown(int distance){ //base pid
 resetdriversencoders();
-int avg_encoder_value = (driveRightFront.get_position()+driveLeftFront.get_position())/2;
 brake_coast();
 
-  //float Kp = 0.5; //P
-//  float Ki = 0.2; //I
-//  float Kd = 0.1; //D
+  float Kp = 0.5; //P
+  float Ki = 0.2; //I
+  float Kd = 0.1; //D
+
 float error;
 float integral;
 float derivative;
 float previous_error;
 float speed;
 
-  while(avg_encoder_value < distance)
+
+  while( < distance)
   {
-  error = (distance) - (avg_encoder_value);
+  error = (distance) - ();
   integral = integral + error;
   	if(error == 0)
   	{
@@ -110,3 +111,4 @@ float speed;
   }
 setDrive(speed, speed);
 }
+*/

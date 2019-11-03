@@ -1,6 +1,9 @@
 #include "main.h"
 
 void Tank_control(void*);
+
+void setDrive(int left, int right);
+
 void resetdriversencoders();
 //auton funct
 void customforward(int units,int voltage);
