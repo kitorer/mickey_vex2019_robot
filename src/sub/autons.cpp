@@ -10,7 +10,7 @@ void Red_SideUnprotected_5(){
   ArmController.waitUntilSettled();
   ArmController.setTarget(-80);
   ArmController.stop();
-
+  drive.moveDistance(-50);
   intakeController.setTarget(6000);//4000
   drive.moveDistance(500);
   for(int i =0;i < 4;i++){//use to suck the line of 4
@@ -24,7 +24,7 @@ void Red_SideUnprotected_5(){
   auto_tray();
   pros::delay(1000);
 	//stackingintake(-50,30);
-  drive.moveDistance(-300);
+  drive.moveDistance(-500);
   intakeController.stop();
 
 }
@@ -37,55 +37,68 @@ void Blu_SideUnprotected_5(){
   ArmController.waitUntilSettled();
   ArmController.setTarget(-80);
   ArmController.stop();
-
-  intakeController.setTarget(4000);//4000
-  drive.moveDistance(1100);
-  drive.stop();
+  drive.moveDistance(-50);
+  intakeController.setTarget(6000);//4000
+  drive.moveDistance(500);
+  for(int i =0;i < 3;i++){//use to suck the line of 4
+  	drive.setMaxVelocity(65);
+  	drive.moveDistance(170);
+  	drive.waitUntilSettled();
+  }
   drive.turnAngle(-33_deg);
-  drive.moveDistance(1000);
+  drive.moveDistance(900);
   stackingintake(-50,50);//-100,30
   auto_tray();
   pros::delay(1000);
 	//stackingintake(-50,30);
-  drive.moveDistance(-300);
+  drive.moveDistance(-500);
   intakeController.stop();
 
 }
 void blu_sideprotected(){
   intakeController.setMaxVelocity(1000);
-  drive.setMaxVelocity(150);
+  drive.setMaxVelocity(100);
   ////////////////////////////////////////////////
 
   ArmController.setTarget(450);
   ArmController.waitUntilSettled();
   ArmController.setTarget(-80);
   ArmController.stop();
-
-  intakeController.setTarget(6000);//4000
+  drive.moveDistance(-50);
+  intakeController.setTarget(9000);//4000
   drive.moveDistance(1200);
-  //drive.waitUntilSettled();
-  //drive.moveDistance(-270);
-  //himeturnRight(230);
-  //drive.turnAngle(9_deg);
-  //rive.moveDistance(800);
-  //drive.waitUntilSettled();
-
-  /*drive.turnAngle(32.5_deg);
-  drive.moveDistance(1000);
-  stackingintake(-50,15);//-100,30
+  drive.turnAngle(5_deg);
+  drive.moveDistance(200);
+  drive.moveDistance(-200);
+  drive.turnAngle(25_deg);
+  drive.moveDistance(1150);
   auto_tray();
+  stackingintake(-50,50);
   pros::delay(1000);
-	//stackingintake(-50,30);
   drive.moveDistance(-300);
-  intakeController.stop();
-*/
 }
 
 void red_Sideprotected(){
   intakeController.setMaxVelocity(1000);
-  drive.setMaxVelocity(80);
+  drive.setMaxVelocity(100);
   ////////////////////////////////////////////////
 
+  ArmController.setTarget(450);
+  ArmController.waitUntilSettled();
+  ArmController.setTarget(-80);
+  ArmController.stop();
+  drive.moveDistance(-50);
+  intakeController.setTarget(9000);//4000
+  drive.moveDistance(1200);
+  drive.turnAngle(-6_deg);
+  drive.moveDistance(200);
+  drive.moveDistance(-200);
+  drive.turnAngle(-21_deg);
+  drive.moveDistance(1100);
+  auto_tray();
+  stackingintake(-50,50);
+  pros::delay(1000);
+  drive.moveDistance(-300);
 }//
 
 void skills(){
@@ -94,7 +107,7 @@ void skills(){
    ArmController.setTarget(-80);
    ArmController.stop();
    drive.setMaxVelocity(80);
-   intakeController.setTarget(17000);//4000
+   intakeController.setTarget(18000);//4000
    //
    drive.moveDistance(400);
    drive.waitUntilSettled();
@@ -118,21 +131,21 @@ void skills(){
      drive.moveDistance(170);
      drive.waitUntilSettled();
    }
-   drive.moveDistance(440);
+   drive.moveDistance(550);
    drive.waitUntilSettled();
    drive.turnAngle(10_deg);
-   drive.moveDistance(450);
+   drive.moveDistance(230);
    drive.waitUntilSettled();
 
-   stackingintake(-70,50);
+   stackingintake(-50,30);
    intakeController.stop();
    auto_tray();
    pros::delay(2000);
    slowstraight(80,40);
-   drive.moveDistanceAsync(-300);//
-   reverse_tray();
+   drive.moveDistanceAsync(-500);//
    drive.waitUntilSettled();
-   drive.turnAngle(-30_deg);
+   reverse_tray();
+   drive.turnAngle(-28_deg);
    slowstraight(700,200);
 
 }
