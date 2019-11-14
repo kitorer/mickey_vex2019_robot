@@ -1,71 +1,75 @@
 #include "main.h"
+typedef struct {
+  float kp;
+  float ki;
+  float kd;
 
-float kp;
-float ki;
-float kd;
+  float currentL = 0;
+  float currentR =0;
+  float pi=3.14592653589;
+  float circ ;
+  float ticksToFeet = 71.656;
 
-float currentL = 0;
-float currentR =0;
-float pi=3.14592653589;
-float circ ;
+   float powerL;
+   float powerR;
+   float errorL;
+   float errorR;
+   float lastErrorL;
+   float lastErrorR;
+   float proportionL;
+   float proportionR;
+   float integralL;
+   float integralR;
+   float derivativeL;
+   float derivativeR;
+}PID;
 
- float powerL;
- float powerR;
- float errorL;
- float errorR;
- float lastErrorL;
- float lastErrorR;
- float proportionL;
- float proportionR;
- float integralL;
- float integralR;
- float derivativeL;
- float derivativeR;
-
-
+void moveForwardPID(QLength feet)
+{
+  profileController.moveTo({Point{0_ft, 0_ft, 0_deg}, Point{feet, 0_ft, 0_deg}});
+}
 
 void basePID(int distance){
+  PID moveStraightPID;
 
-
-    while( distance < driveLeftBack.get_target_position() &&
-    distance < driveRightBack.get_target_position() )
-      {
+    while( distance > driveLeftBack.get_target_position() &&
+    distance > driveRightBack.get_target_position() );
 //proportional section
-     errorL= distance - driveLeftBack.get_target_position();
-     errorR= distance - driveRightBack.get_target_position();
+    moveStraightPID.errorL= distance - driveLeftBack.get_target_position();
+    moveStraightPID.errorR= distance - driveRightBack.get_target_position();
 //integral section
-     integralL =  integralL +  errorL;
-     integralR =  integralR +  errorR;
+    moveStraightPID.integralL = moveStraightPID.integralL + moveStraightPID.errorL;
+    moveStraightPID.integralR = moveStraightPID.integralR + moveStraightPID.errorR;
 
-    if ( errorL == 0||  errorL >distance)
+    if (moveStraightPID.errorL == 0|| moveStraightPID.errorL >distance)
     {
-       integralL =0;
+      moveStraightPID.integralL =0;
     }
-    if(  errorR == 0||  errorR >distance )
+    if( moveStraightPID.errorR == 0|| moveStraightPID.errorR >distance )
     {
-       integralR =0;
+      moveStraightPID.integralR =0;
     }
-    if(  integralL >200)// powerL &&  errorR > powerR )  //if error is big
+    if( moveStraightPID.errorL >moveStraightPID.powerL && moveStraightPID.errorR >moveStraightPID.powerR )  //if error is big
     {
-       integralL =0;
-       integralR =0;
+      moveStraightPID.integralL =0;
+      moveStraightPID.integralR =0;
     }
 
 //derivative section
-     derivativeL =  errorL - lastErrorL;
-     derivativeR =  errorR - lastErrorR;
-     lastErrorL=  errorL;
-     lastErrorR=  errorR;
+    moveStraightPID.derivativeL = moveStraightPID.errorL -moveStraightPID.lastErrorL;
+    moveStraightPID.derivativeR = moveStraightPID.errorR -moveStraightPID.lastErrorR;
+    moveStraightPID.lastErrorL= moveStraightPID.errorL;
+    moveStraightPID.lastErrorR= moveStraightPID.errorR;
 
 
-     powerL =  errorL *  kp +
-                              integralL *  ki +
-                              derivativeL *  kd;
+    moveStraightPID.powerL = moveStraightPID.errorL * moveStraightPID.kp +
+                             moveStraightPID.integralL * moveStraightPID.ki +
+                             moveStraightPID.derivativeL * moveStraightPID.kd;
 
-     powerR =  errorR *  kp +
-                              integralR *  ki +
-                              derivativeR *  kd;
+    moveStraightPID.powerR = moveStraightPID.errorR * moveStraightPID.kp +
+                             moveStraightPID.integralR * moveStraightPID.ki +
+                             moveStraightPID.derivativeR * moveStraightPID.kd;
 
-    setDrive( powerL,  powerR);
-  }
+    setDrive(moveStraightPID.powerL, moveStraightPID.powerR);
+
 }

@@ -49,5 +49,5 @@ void skills();
 void red_Sideprotected();
 //////////////////////////
 
-//typedef struct {
-//}PID;
+typedef struct {
+}PID;
