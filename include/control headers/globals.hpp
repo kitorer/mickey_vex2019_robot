@@ -1,5 +1,5 @@
 #include "main.h"
-
+//globals header file
 using namespace okapi;
 
 // Variables
@@ -47,3 +47,7 @@ void test();
 void blu_sideprotected();
 void skills();
 void red_Sideprotected();
+//////////////////////////
+
+//typedef struct {
+//}PID;

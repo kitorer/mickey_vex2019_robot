@@ -1,12 +1,12 @@
 #include "main.h"
-
+//macros.cpp
   void tray_macro(void*){//macro function
   while(master.get_digital(DIGITAL_LEFT)){
     auto_tray();
   }}
 
   void reverse_tray_macro(void*){
-    while(master.get_digital(DIGITAL_RIGHT)){
+    while(master.get_digital(DIGITAL_A)){
       reverse_tray();
     }}
 

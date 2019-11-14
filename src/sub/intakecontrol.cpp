@@ -1,5 +1,5 @@
 #include "main.h"
-
+//intakecontrol.cpp
 void stackingintake(int distance,int velocity){//okapi
     intakeController.setMaxVelocity(velocity);
     intakeController.setTarget(distance);
@@ -13,7 +13,7 @@ void Intake_control(void*){
   if (master.get_digital(DIGITAL_L1)){
   Lintake.move_voltage(12000); // This is 100 because it's a 100rpm motor
   Rintake.move_voltage(12000);
-  } else if (master.get_digital(DIGITAL_L2)){
+} else if (master.get_digital(DIGITAL_L2)){
   Rintake.move_voltage(-12000);
   Lintake.move_voltage(-12000);
  }  else{

@@ -1,5 +1,5 @@
 #include "main.h"
-
+//main.cpp
 /**
  * A callback function for LLEMU's center button.
  *
@@ -32,6 +32,7 @@ void initialize() {
 	pros::lcd::set_text(6, " in 30 seconds. Line up at the start. The");
 	// running speed starts slowly, but gets faster each minute after you hear this signal. [beep] A single lap should be completed each time you hear this sound. [ding] Remember to run in a straight line, and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start." );
 	pros::lcd::register_btn1_cb(on_center_button);
+
 ////////////////////////////////////////////////////////////
 }
 
@@ -54,6 +55,11 @@ void disabled() {
  * starts.
  */
 void competition_initialize() {
+	//Red_SideUnprotected_5();
+	 //Blu_SideUnprotected_5();
+	//blu_sideprotected();
+	 //red_Sideprotected();
+	//skills();
 
 }
 
@@ -69,13 +75,14 @@ void competition_initialize() {
  * from where it left off.
  */
 void autonomous(){//just put the void that you want in here
-//Red_SideUnprotected_5();
- //Blu_SideUnprotected_5();
+Red_SideUnprotected_5();
+//Blu_SideUnprotected_5();
 //blu_sideprotected();
- red_Sideprotected();
+ //red_Sideprotected();
 //skills();
 //test();
 //slowdown(300,10,5,1);
+//basePID(500);
 }
 void opcontrol(){
  while (true){
@@ -85,9 +92,9 @@ pros::Task Arm_control_t (Arm_control, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK
 pros::Task setTrayAnglerMotor_t (setTrayAnglerMotor, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "setTrayAnglerMotor");
 pros::Task Intake_control_t (Intake_control, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "Intake_control");
 //pros::Task arm_macro_t (arm_macro, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "arm_macro");
-pros::Task tray_macro_t (tray_macro, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "tray_macro");
-pros::Task Tray_control_t (Tray_control, (void*)"Pros", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "Tray_control");
-pros::Task reverse_tray_macro_t (reverse_tray_macro, (void*)"Pros", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "reverse_tray_macro");
+//pros::Task tray_macro_t (tray_macro, (void*)"PROS", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "tray_macro");
+//pros::Task Tray_control_t (Tray_control, (void*)"Pros", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "Tray_control");
+//pros::Task reverse_tray_macro_t (reverse_tray_macro, (void*)"Pros", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "reverse_tray_macro");
 
 pros::delay(20);
 

@@ -1,6 +1,5 @@
 #include "main.h"
-
-
+//traycontrol.cppp
 ////////////////////////////////////////////////////////////////////////
 void Tray_control(void*)//with the arm
 {
@@ -9,7 +8,12 @@ void Tray_control(void*)//with the arm
    Tray.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 } else if(master.get_digital(DIGITAL_R2) && Tray.get_position() >0){
   Tray.move_voltage(-8000);
-}}
+
+}
+else{
+  Tray.set_brake_mode(MOTOR_BRAKE_HOLD);
+}
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -22,10 +26,10 @@ void setTrayAngler (int power){
 void setTrayAnglerMotor(void*){
 
   if (master.get_digital(DIGITAL_UP)) {
-   Tray.move_voltage(12000); // This is 100 because it's a 100rpm motor
+   Tray.move_voltage(-8000); // This is 100 because it's a 100rpm motor
    Tray.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
  } else if (master.get_digital(DIGITAL_DOWN)) {
-   Tray.move_voltage(-12000);
+   Tray.move_voltage(8000);
  }else{
    Tray.move_velocity(0);
 }}

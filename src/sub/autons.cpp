@@ -4,10 +4,17 @@ void slowstraight(int Distance,int Velocity){
   drive.moveDistance(Distance);
 }
 void Red_SideUnprotected_5(){
+  drive.moveDistance(400);
+  drive.waitUntilSettled();
+  drive.moveDistance(-500);
+/*
+
   drive.setMaxVelocity(65);
   ////////////////////////////////////////////////
   ArmController.setTarget(500);
+  //intakeController.setTarget(-100);
   ArmController.waitUntilSettled();
+  pros::delay(500);
   ArmController.setTarget(-80);
   ArmController.stop();
   drive.moveDistance(-50);
@@ -26,14 +33,17 @@ void Red_SideUnprotected_5(){
 	//stackingintake(-50,30);
   drive.moveDistance(-500);
   intakeController.stop();
-
+*/
 }
 
 void Blu_SideUnprotected_5(){
   intakeController.setMaxVelocity(1000);
   drive.setMaxVelocity(60);
   ////////////////////////////////////////////////
-  ArmController.setTarget(450);
+  drive.moveDistance(400);
+  drive.waitUntilSettled();
+  drive.moveDistance(-500);
+/* ArmController.setTarget(450);
   ArmController.waitUntilSettled();
   ArmController.setTarget(-80);
   ArmController.stop();
@@ -70,12 +80,12 @@ void blu_sideprotected(){
   drive.turnAngle(5_deg);
   drive.moveDistance(200);
   drive.moveDistance(-200);
-  drive.turnAngle(25_deg);
+  drive.turnAngle(23_deg);
   drive.moveDistance(1150);
   auto_tray();
   stackingintake(-50,50);
-  pros::delay(1000);
-  drive.moveDistance(-300);
+  pros::delay(700);
+  drive.moveDistance(-500);*/
 }
 
 void red_Sideprotected(){
@@ -157,12 +167,12 @@ void test(){
    ArmController.setTarget(-80);
    ArmController.stop();
 */
-   profileController.generatePath({
-     Point{0_ft,0_ft,0_deg},
-     Point{3_ft, 0_ft, 0_deg}}, "A");
-   profileController.setTarget("A");
-   profileController.waitUntilSettled();
-   //profileController.removePath("A");
+
+profileController.generatePath({Point{4_ft,0_ft,0_deg}, Point{6_ft, 0_ft, 0_deg}}, "A");
+profileController.setTarget("A");
+profileController.waitUntilSettled();
+profileController.removePath("A");
+ //profileController.removePath("A");
   }
   /*
   profileController.generatePath({Point{0_ft,0_ft,0_deg}, Point{2_ft, 2_ft, 90_deg}}, "A");
