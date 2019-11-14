@@ -4,8 +4,8 @@
 void basePID(int distance){
   PID moveStraightPID;
 
-    while( distance > driveLeftBack.get_target_position() &&
-    distance > driveRightBack.get_target_position() );
+    while( distance < driveLeftBack.get_target_position() &&
+    distance < driveRightBack.get_target_position() );
 //proportional section
     moveStraightPID.errorL= distance - driveLeftBack.get_target_position();
     moveStraightPID.errorR= distance - driveRightBack.get_target_position();
