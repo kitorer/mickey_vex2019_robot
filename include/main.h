@@ -88,6 +88,7 @@ void opcontrol(void);
 #include "control headers/armcontrol.hpp"
 #include "control headers/intakecontrol.hpp"
 #include "control headers/traycontrol.hpp"
+#include "control headers/PID.hpp"
 #endif
 
 #endif  // _PROS_MAIN_H_

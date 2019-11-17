@@ -9,13 +9,6 @@ void brake_coast(){
 }
 
 
-void setDrive(int left, int right){//VELOCITY left & right
- driveRightBack = right-10;
- driveRightFront = right-10;
- driveLeftBack = left;
- driveLeftFront = left;
-}
-
 void SetDriveSlower(int left, int right){
  driveRightBack = right-70;
  driveRightFront = right-70;
@@ -38,12 +31,7 @@ if(abs(leftjoystick) < 10) leftjoystick = 0;
  driveLeftFront.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void resetdriversencoders(){
- driveRightBack.tare_position();
- driveLeftBack.tare_position();
- driveRightFront.tare_position();
- driveLeftFront.tare_position();
-}
+
 
 void himeturnleft(int turndeg){//should be same values (430 works as 180deg )	himeturnleft(430);
 

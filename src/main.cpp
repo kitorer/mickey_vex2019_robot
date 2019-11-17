@@ -69,12 +69,15 @@ void competition_initialize() {
  * from where it left off.
  */
 void autonomous(){//just put the void that you want in here
-Red_SideUnprotected_5();
-// Blu_SideUnprotected_5();
+//Red_SideUnprotected_5();
+//Blu_SideUnprotected_5();
 // blu_sideprotected();
 // red_Sideprotected();
 //skills();
 //test();
+//moveProportional(10);
+basePID(50);
+
 }
 void opcontrol(){
  while (true){
