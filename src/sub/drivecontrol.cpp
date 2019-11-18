@@ -1,21 +1,6 @@
 #include "main.h"
 //drivecontol.cpp
-void brake_coast(){
 
-   driveRightBack.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-   driveLeftBack.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-   driveRightFront.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-   driveLeftFront.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-
-}
-
-
-void setDrive(int left, int right){//VELOCITY left & right
- driveRightBack = right;
- driveRightFront = right;
- driveLeftBack = left;
- driveLeftFront = left;
-}
 //hello
 
 void SetDriveSlower(int left, int right){
@@ -40,12 +25,6 @@ if(abs(leftjoystick) < 10) leftjoystick = 0;
  driveLeftFront.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void resetdriversencoders(){
- driveRightBack.tare_position();
- driveLeftBack.tare_position();
- driveRightFront.tare_position();
- driveLeftFront.tare_position();
-}
 
 void himeturnleft(int turndeg){//should be same values (430 works as 180deg )	himeturnleft(430);
 

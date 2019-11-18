@@ -48,6 +48,3 @@ void blu_sideprotected();
 void skills();
 void red_Sideprotected();
 //////////////////////////
-
-typedef struct {
-}PID;
