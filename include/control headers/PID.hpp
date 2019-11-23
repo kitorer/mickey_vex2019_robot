@@ -5,9 +5,11 @@ void allMotorCoast();
 
 void basePD(int target);
 
-void basePID(int target);
+void forwardPID(int target);
 
-void turnLPID(int distance,int deg);
+void backPID(int target);
+
+void turnLPID(int target);
 
 void turnRPID(int distance,int deg);
 

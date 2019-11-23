@@ -29,37 +29,6 @@ AsyncPosIntegratedController tiltController = AsyncControllerFactory::posIntegra
 AsyncPosIntegratedController ArmController = AsyncControllerFactory::posIntegrated(9);
 AsyncPosIntegratedController intakeController = AsyncControllerFactory::posIntegrated({2,-10});
 
-/*
-int sgn(int input){
-  if (input>0)
-    return 1;
-  else if (input < 0)
-    return -1;
-  return 0;
-}
-int clipnum(int input, int clip){
-  if (input > clip)
-    return clip;
-  else if (input < clip)
-    return -clip;
-  return input;
-}
-*/
+
 int toggleval = 0;
 int count;
-/*
-void toggle(){
-  if (master.get_digital(DIGITAL_B))
-  {
-    toggleval =1;
-  }
-  else if(master.get_digital_new_press(DIGITAL_B))
-  {
-    toggleval =0;
-  }
-}
-*/
-void slowdown(){ //returns an integer that slowly decreases
-
-
-}
