@@ -1,4 +1,3 @@
-#include "main.h"
 
 #include "main.h"
 
@@ -23,87 +22,129 @@ void setDrive(int left, int right){//VELOCITY left & right
  driveLeftFront = left;
 }
 
-void moveProportional(int target){
-  allMotorCoast();
+void forwardPID(int target){
   resetdriversencoders();
-  float kp =.5;
-  int error;
-
-  while(true)
-    {
-     error = (target -driveLeftBack.get_position())*kp;// (setpoint-sensorval)*kp
-
-        setDrive(error,error);
-      pros::delay(20);
-    }
-}
-
-void basePD(int target)
-{
   allMotorCoast();
-  resetdriversencoders();
-  float kp =.3;
+  float kp =.6;
   float kd =.05;
-  float ki=.1;
+  float ki=.2;
 
   int error;
   int lasterror;
   int derivative;
   int power;
-  int integralRaw;
   float integral;
-  bool timerbool=true;
-    int absloute =  driveLeftBack.get_target_velocity();
-  while(true)
+
+  while(error!=0)
     {
-     error = (target -driveLeftBack.get_position());// (setpoint-sensorval)*kp
-
-
-
-     derivative = (error - lasterror);
-     lasterror = error;
-     power = error*kp + derivative*kd;
-        setDrive(power,power);
-      pros::delay(20);
-    }
-  }
-
-void basePID(int target){
-  resetdriversencoders();
-  float kp =.5;
-  float kd =.05;
-  float ki=.1;
-
-  int error;
-  int lasterror;
-  int derivative;
-  int power;
-  int integralRaw;
-  float integral;
-  bool timerbool=true;
-
-  while(error==0)
-    {
-   error = (target -driveLeftFront.get_position());// (setpoint-sensorval)*kp
-
-     integralRaw = integralRaw +error;
-     integral = ki*integralRaw;
+   error = (target -driveLeftBack.get_position());// (setpoint-sensorval)*kp
+      if(error >100){
+        error=100;
+      }
+//-----------------------------------------------------
+     integral = (integral +error)*ki;
      if(error == 0)
      {
        integral =0;
      }
-     if (integral >200)
+     if (integral >30)
      {
-      integral =0;
+      integral =30;
      }
-
+//------------------------------------------------------
      derivative = (error - lasterror);
      lasterror = error;
      power = error*kp +integral*ki+ derivative*kd ;
-        setDrive(power,power);
+
+     int Rdiff =(driveLeftBack.get_position()-driveRightBack.get_position())*.3;//slows down right side if it is faster
+
+        setDrive(power  ,power +Rdiff );
+
     }
       pros::delay(15);
   }
-/*
 
-*/
+  void backPID(int target/*has to be negative*/){
+    resetdriversencoders();
+    allMotorCoast();
+    float kp =.6;
+    float kd =.05;
+    float ki=.2;
+
+    int error;
+    int lasterror;
+    int derivative;
+    int power;
+
+    float integral;
+
+    while(error!=0)
+      {
+     error = (target +abs(driveLeftBack.get_position()));// (setpoint-sensorval)*kp
+      if(error<-100){
+        error =-100;
+      }
+
+      integral = (integral +error)*ki;
+      if(error == 0)
+      {
+        integral =0;
+      }
+      if (integral >30)
+      {
+       integral =30;
+      }
+      derivative = (error - lasterror);
+      lasterror = error;
+
+           power = error*kp +integral*ki+ derivative*kd ;
+
+           int Rdiff =abs(driveLeftBack.get_position()-driveRightBack.get_position())*.3;//returns a negative value
+           int Ldiff =abs(driveRightBack.get_position()-driveLeftBack.get_position())*.3;
+          setDrive(power+Ldiff,power+Rdiff);
+      }
+        pros::delay(15);
+    }
+
+
+    void turnLPID(int target){
+      resetdriversencoders();
+      float kp =.6;
+      float kd =.05;
+      float ki=.2;
+
+      int error;
+      int lasterror;
+      int derivative;
+      int power;
+      float integral;
+
+      while(error!=0)
+        {
+       error = (target -driveRightBack.get_position());// (setpoint-sensorval)*kp
+          if(error >150){
+            error=150;
+          }
+    //-----------------------------------------------------
+         integral = (integral +error)*ki;
+         if(error == 0)
+         {
+           integral =0;
+         }
+         if (integral >20)
+         {
+          integral =20;
+         }
+    //------------------------------------------------------
+         derivative = (error - lasterror);
+         lasterror = error;
+         power = error*kp +integral*ki+ derivative*kd ;
+
+            setDrive(-power*1.02 ,power);
+
+        }
+          pros::delay(15);
+      }
+  /*
+
+  */

@@ -5,10 +5,14 @@ void allMotorCoast();
 
 void basePD(int target);
 
-void basePID(int target);
+void forwardPID(int target);
 
-void turnLPID(int distance,int deg);
+void turnLPID(int distance);
 
-void turnRPID(int distance,int deg);
+void turnRPID(int distance);
 
-void moveProportional(int target);
+void backPID(int target);
+
+void reversebasePID(int target);
+
+void goback(int target);
