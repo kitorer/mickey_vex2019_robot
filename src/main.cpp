@@ -76,7 +76,12 @@ void autonomous(){//just put the void that you want in here
 //skills();
 //test();
 //moveProportional(10);
-turnLPID(1070);
+forwardPID(1000);
+turnRPID(1015);
+forwardPID(1000);
+
+
+//turnLPID(1060);
 
 }
 void opcontrol(){

@@ -11,6 +11,6 @@ void backPID(int target);
 
 void turnLPID(int target);
 
-void turnRPID(int distance,int deg);
+void turnRPID(int distance);
 
 void moveProportional(int target);
