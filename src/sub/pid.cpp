@@ -39,8 +39,8 @@ void forwardPID(int target){
   while(error!=0)
     {
    error = (target -driveLeftBack.get_position());// (setpoint-sensorval)*kp
-      if(driveLeftBack.get_position() <  target/4){
-        error=driveLeftBack.get_position()+5;
+      if(error>150){
+        error =150;
       }
 //-----------------------------------------------------
      integral = (integral +error)*ki;
@@ -148,9 +148,9 @@ void forwardPID(int target){
            pros::delay(15);
        }
 
-          void turnRPID(int target){
+          void turnRPID(int target){//1015
             resetdriversencoders();
-            
+
             float kp =.5;
             float kd =.05;
             float ki=.2;

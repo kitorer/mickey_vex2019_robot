@@ -21,30 +21,3 @@ extern pros::Motor Tray;
 extern pros::Motor arm;
 extern pros::Motor Lintake;
 extern pros::Motor Rintake;
-
-extern ChassisControllerIntegrated drive;
-
-extern AsyncPosIntegratedController intakeController;
-extern AsyncPosIntegratedController ArmController;
-extern AsyncPosIntegratedController tiltController;
-
-extern AsyncMotionProfileController profileController;
-// Function headers
-int sgn(int input);
-
-int clipnum(int input, int clip);
-
-void toggle();
-
-
-///////////////// autons
-void movestraight();
-void Red_SideUnprotected_5();
-void Blu_SideUnprotected_5();
-void redsidredsideUnprotected_10();
-void lmaodoesntwork();
-void test();
-void blu_sideprotected();
-void skills();
-void red_Sideprotected();
-//////////////////////////
